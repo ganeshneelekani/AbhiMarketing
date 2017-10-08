@@ -35,6 +35,13 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
+    public void saveOrUpdate(Product product) throws Exception {
+
+        sessionFactory.getCurrentSession().saveOrUpdate(product);
+
+    }
+
+    @Override
     public boolean findByProductId(Product product) {
 
         List list = sessionFactory.getCurrentSession().createCriteria(Product.class)
@@ -53,6 +60,13 @@ public class ProductDaoImpl implements ProductDao {
 
         List productList = sessionFactory.getCurrentSession().createCriteria(Product.class).list();
         return productList;
+    }
+
+    @Override
+    public Product getProduct(String productId) {
+
+        Product product = (Product) sessionFactory.getCurrentSession().get(Product.class, productId);
+        return product;
     }
 
 }

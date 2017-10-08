@@ -99,7 +99,7 @@
          <div >
             <div class="panel panel-default">
                <div class="panel-body">
-                  <form:form id="addProduct" modelAttribute="addProduct" action="/AbhiMarketing/SaveProduct" method="post" class="form-signin"  enctype="multipart/form-data" >
+                  <form:form id="addProduct" modelAttribute="editProduct" action="/AbhiMarketing/updateProduct" method="post" class="form-signin"  >
                      <c:if test="${not empty errorMessage}">
                         <div class="row">
                            <div class="col-xs-12 col-sm-12 col-md-12">
@@ -173,12 +173,14 @@
                               <form:input type="text" path="basicPrice" name="basicPrice" id="basicPrice" class="form-control"/>
                            </div>
                         </div>
+                        <!--
                         <div class="col-xs-6 col-sm-6 col-md-6">
                            <div class="form-group">
                               <label class="control-label" for="file">Upload Pic</label>
                               <input type="file" id="file" name="file"/>
                            </div>
                         </div>
+                        -->
                      </div>
                </div>
             </div>

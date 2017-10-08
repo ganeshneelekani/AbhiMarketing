@@ -11,7 +11,11 @@ public interface ProductService {
 
     public boolean save(Product product);
 
+    public boolean saveOrUpdate(Product product);
+
     public boolean findByProductId(Product product);
 
     public List getAllTheProducts();
+
+    public Product  getProduct(String productId);
 }

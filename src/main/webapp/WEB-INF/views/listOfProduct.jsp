@@ -126,10 +126,9 @@
                            <c:out value="${listValue.gstPercentage} %" />
                         </label>
                         </br>
-                        <label class="control-label-name"> Weight/Jar -  </label>
+                        <label class="control-label-name"> Weight/Jar in Gms-  </label>
                         <label class="control-label-product">
                            <c:out value="${listValue.weightPerJar}" />
-                           Gms
                         </label>
                         </br>
                         <label class="control-label-name">Pieces/Jar  - </label>
@@ -142,16 +141,22 @@
                            <c:out value="${listValue.noOfJarsPerCartoon}" />
                         </label>
                         </br>
-                        <label class="control-label-name"> Base Price -  </label>
+                        <label class="control-label-name"> Base Price in Rs -  </label>
                         <label class="control-label-product-baseprice">
-                           <c:out value="${listValue.basicPrice} " /> Rs
+                           <c:out value="${listValue.basicPrice} " />
                         </label>
                         </br>
                      </h3>
+                     <div>
+
                      <!-- <a href="javascript:;" class="btn add2cart"> <c:out value="Rs ${listValue.basicPrice}" /></a>-->
-                     <a href="listOfProduct/${listValue.productId}" class="btn btn-primary btn-sm ">
-                     <span><strong>Edit</strong></span>
+                     <a href="${listValue.productId}" class="btn btn-primary btn-sm" style="float:left">
+                     <span><strong> Edit </strong></span>
                      </a>
+                     <a href="${listValue.productId}" class="btn btn-primary btn-sm " style="float:right">
+                                          <span><strong>Delete</strong></span>
+                                          </a>
+                                          </div>
                   </div>
                </div>
             </c:forEach>

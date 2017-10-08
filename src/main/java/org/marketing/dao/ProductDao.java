@@ -13,7 +13,11 @@ public interface ProductDao {
 
     public void save(Product product) throws Exception;
 
+    public void saveOrUpdate(Product product) throws Exception;
+
     public boolean findByProductId(Product product);
 
     public List getAllTheProducts();
+
+    public Product  getProduct(String productId);
 }

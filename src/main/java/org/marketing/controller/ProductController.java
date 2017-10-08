@@ -21,7 +21,9 @@ import org.apache.log4j.Logger;
 import org.marketing.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -54,7 +56,7 @@ public class ProductController {
 
     @RequestMapping(value = "/SaveProduct", method = RequestMethod.POST)
     public ModelAndView save(@ModelAttribute("addProduct") Product product, HttpServletRequest request,
-            HttpServletResponse response, @RequestParam MultipartFile file) {
+            HttpServletResponse response) {
 
         logger.info("===================2===============");
 
@@ -67,7 +69,7 @@ public class ProductController {
         logger.info("Piece/jar:" + product.getNoOfPiecesPerJar());
         logger.info("weight/jar:" + product.getWeightPerJar());
 
-        writeFileToDisk(file, product.getProductId());
+        //   writeFileToDisk(file, product.getProductId());
 
         Boolean status = productService.findByProductId(product);
 
@@ -80,7 +82,7 @@ public class ProductController {
             if (productServiceStatus.equals(true)) {
 
                 modelAndView.addObject("addProduct", new Product());
-                modelAndView.addObject("sucessMessage", "Product added sucessfully");
+                modelAndView.addObject("successMessage", "Product added sucessfully");
 
             } else {
                 modelAndView.addObject("errorMessage", "Some Thing went wrong!!");
@@ -100,10 +102,10 @@ public class ProductController {
 
         List listOfProduct = productService.getAllTheProducts();
 
-        Iterator iterator=listOfProduct.iterator();
-        while (iterator.hasNext()){
+        Iterator iterator = listOfProduct.iterator();
+        while (iterator.hasNext()) {
 
-            Product  product123= (Product) iterator.next();
+            Product product123 = (Product) iterator.next();
 
             logger.info("Name123:" + product123.getProductName());
             logger.info("Product Id123:" + product123.getProductId());
@@ -121,8 +123,44 @@ public class ProductController {
         modelAndView.addObject("imageLocation", rootPath);
 
 
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/{productId}", method = RequestMethod.GET)
+    public ModelAndView editProduct(HttpServletRequest request, HttpServletResponse response,
+            @PathVariable("productId") String productId, Model model) {
+
+        logger.info("===================1===============");
+
+        Product product = productService.getProduct(productId);
+
+        ModelAndView modelAndView = new ModelAndView("editProduct");
+        modelAndView.addObject("editProduct", product);
 
         return modelAndView;
+    }
+
+
+    @RequestMapping(value = "/updateProduct", method = RequestMethod.POST)
+    public ModelAndView updateProduct(@ModelAttribute("editProduct") Product product, HttpServletRequest request,
+            HttpServletResponse response) {
+
+        logger.info("===================== UpdateProduct ===================");
+
+        Boolean status = productService.saveOrUpdate(product);
+
+        if (status.equals(true)) {
+
+            ModelAndView modelAndView = new ModelAndView("redirect:/listOfProduct");
+            return modelAndView;
+
+        } else {
+
+            ModelAndView modelAndView = new ModelAndView("editProduct");
+            modelAndView.addObject("editProduct", product);
+            modelAndView.addObject("errorMessage", "Some Thing went wrong!!");
+            return modelAndView;
+        }
     }
 
     private void writeFileToDisk(MultipartFile file, String productId) {
@@ -136,7 +174,7 @@ public class ProductController {
         }
 
         File serverFile = new File(dir.getAbsolutePath() + File.separator + file.getOriginalFilename()
-                .replace(file.getOriginalFilename(), productId)+".jpg");
+                .replace(file.getOriginalFilename(), productId) + ".jpg");
         latestUploadPhoto = file.getOriginalFilename();
         logger.info(" latestUploadPhoto 1 " + latestUploadPhoto);
 

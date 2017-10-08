@@ -35,6 +35,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public boolean saveOrUpdate(Product product) {
+
+        try {
+            productDao.saveOrUpdate(product);
+        } catch (Exception e) {
+            logger.info(" ======== EXCEPTION =====" + e);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
     public boolean findByProductId(Product product) {
 
         Boolean status = productDao.findByProductId(product);
@@ -45,5 +57,11 @@ public class ProductServiceImpl implements ProductService {
     public List getAllTheProducts() {
         List productList = productDao.getAllTheProducts();
         return productList;
+    }
+
+    @Override
+    public Product getProduct(String productId) {
+        Product product = productDao.getProduct(productId);
+        return product;
     }
 }

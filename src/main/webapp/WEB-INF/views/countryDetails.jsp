@@ -40,8 +40,8 @@ th {
 		</tr>
 		<tr>
 		<form:hidden path="id" />
-          <td><form:label path="countryName">Country Name:</form:label></td>
-          <td><form:input path="countryName" size="30" maxlength="30"></form:input></td>
+          <td><form:label path="countryName">Country Name:123</form:label></td>
+          <td><form:input path="countryName" size="30" maxlength="30"> sd ad</form:input></td>
         </tr>
 		<tr>
 			    <td><form:label path="population">Population:</form:label></td>
@@ -69,7 +69,7 @@ th {
 			<td>${country.id}</td>
 			<td>${country.countryName}</td>
 			<td>${country.population}</td>
-			<td><a href="<c:url value='/updateCountry/${country.id}' />" >Edit</a></td>
+			<td><a href="<c:url value='/updateCountry/${country.id}' />" >Edit123</a></td>
 			<td><a href="<c:url value='/deleteCountry/${country.id}' />" >Delete</a></td>
 		</tr>
 	</c:forEach>

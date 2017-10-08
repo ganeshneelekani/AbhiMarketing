@@ -298,6 +298,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    word-break:break-all;
 }
 [tabindex="-1"]:focus {
     outline: none !important;
