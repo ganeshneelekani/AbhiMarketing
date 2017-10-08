@@ -1,5 +1,7 @@
 package org.marketing.dao;
 
+import java.util.List;
+
 import org.marketing.model.bean.Consignee;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,4 +14,6 @@ public interface ConsigneeDao {
     public void save(Consignee consignee) throws  Exception;
 
     public boolean findByProductId(Consignee consignee);
+
+    public List getAllTheConsignee();
 }

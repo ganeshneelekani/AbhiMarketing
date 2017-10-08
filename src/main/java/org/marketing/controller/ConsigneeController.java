@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.File;
+import java.util.Iterator;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.marketing.model.bean.Consignee;
@@ -42,8 +44,8 @@ public class ConsigneeController {
     }
 
     @RequestMapping(value = "/SaveConsignee", method = RequestMethod.POST)
-    public ModelAndView save(@ModelAttribute("consignee") Consignee consignee,
-            @RequestParam MultipartFile file,HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView save(@ModelAttribute("consignee") Consignee consignee, HttpServletRequest request,
+            HttpServletResponse response) {
 
         logger.info("===================SaveConsignee===============");
 
@@ -79,5 +81,20 @@ public class ConsigneeController {
         return modelAndView;
     }
 
+
+    @RequestMapping(value = "/listOfConsignee", method = RequestMethod.GET)
+    public ModelAndView getListOfProduct(HttpServletRequest request, HttpServletResponse response) {
+
+
+        logger.info("===================1 ===============");
+
+        List listOfConsignee = consigneeService.getAllTheConsignee();
+
+        ModelAndView modelAndView = new ModelAndView("listOfConsignee");
+        modelAndView.addObject("listOfConsignee", listOfConsignee);
+
+
+        return modelAndView;
+    }
 
 }

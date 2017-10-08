@@ -49,4 +49,11 @@ public class ConsigneeDaoImpl implements ConsigneeDao {
         }
 
     }
+
+    @Override
+    public List getAllTheConsignee() {
+        List consignee = sessionFactory.getCurrentSession().createCriteria(Consignee.class).list();
+        return consignee;
+
+    }
 }

@@ -57,7 +57,6 @@ $(document).ready(function() {
             },
             address: {
                 required: true,
-                regex: /^[A-Za-z0-9 ]{2,500}$/,
                 minlength: 2,
                 maxlength: 500
             },
@@ -110,7 +109,6 @@ $(document).ready(function() {
             },
             address: {
                 required: "Please provide a Student Address",
-                regex: "Please add valid details",
                 minlength: "Address should be atlease 2 character",
                 maxlength: "Address should be less than 1000 character"
             },

@@ -1,5 +1,7 @@
 package org.marketing.service.serviceImpl;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.marketing.dao.ConsigneeDao;
 import org.marketing.dao.daoImpl.ConsigneeDaoImpl;
@@ -36,5 +38,12 @@ public class ConsigneeServiceImpl implements ConsigneeService {
 
         Boolean status = consigneeDao.findByProductId(consignee);
         return status;
+    }
+
+    @Override
+    public List getAllTheConsignee() {
+
+        List consigneeList = consigneeDao.getAllTheConsignee();
+        return consigneeList;
     }
 }

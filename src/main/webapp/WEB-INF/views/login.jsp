@@ -115,6 +115,13 @@
                               <a href="/AbhiMarketing/listOfProduct">List Product</a>
                            <td>
                         </tr>
+                        <tr>
+                                                   <td>
+                                                      <a href="/AbhiMarketing/listOfConsignee">List of Consignee</a>
+                                                   <td>
+                                                </tr>
+
+
                         <tr></tr>
                      </table>
                   </form:form>

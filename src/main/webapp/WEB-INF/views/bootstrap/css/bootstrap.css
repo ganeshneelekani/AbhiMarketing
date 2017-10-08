@@ -298,12 +298,12 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    word-break:break-all;
+    word-break:break-all
 }
 [tabindex="-1"]:focus {
     outline: none !important;
-}
 h1,
+}
 h2,
 h3,
 h4,
@@ -9238,3 +9238,4 @@ img {
     border-radius: 50%
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
