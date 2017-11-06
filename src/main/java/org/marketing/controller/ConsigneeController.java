@@ -13,7 +13,9 @@ import org.marketing.model.bean.Product;
 import org.marketing.service.ConsigneeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -93,6 +95,22 @@ public class ConsigneeController {
         ModelAndView modelAndView = new ModelAndView("listOfConsignee");
         modelAndView.addObject("listOfConsignee", listOfConsignee);
 
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "abc/{consigneeName}", method = RequestMethod.GET)
+    public ModelAndView editConsignee(HttpServletRequest request, HttpServletResponse response,
+            @PathVariable("consigneeName") String consigneeName, Model model) {
+
+        logger.info("===================123===============");
+
+        Consignee consignee = consigneeService.getConsignee(consigneeName);
+
+        logger.info("===================123==============="+consignee.getMobileNo());
+
+        ModelAndView modelAndView = new ModelAndView("editConsignee");
+        modelAndView.addObject("editConsignee", consignee);
 
         return modelAndView;
     }

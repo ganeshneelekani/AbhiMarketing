@@ -99,7 +99,7 @@
          <div >
             <div class="panel panel-default">
                <div class="panel-body">
-                  <form:form id="addProduct" modelAttribute="editProduct" action="/AbhiMarketing/updateProduct" method="post" class="form-signin"  >
+                  <form:form id="addConsignee" modelAttribute="editConsignee" action="/AbhiMarketing/updateProduct" method="post" class="form-signin"  >
                      <c:if test="${not empty errorMessage}">
                         <div class="row">
                            <div class="col-xs-12 col-sm-12 col-md-12">
@@ -119,68 +119,56 @@
                         </div>
                      </c:if>
                      <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="<div class="col-md-4 col-sm-4 col-xs-4">">
+                           <label class=" control-label" for="consigneeName">Consignee Name</label>
                            <div class="form-group">
-                              <label class=" control-label" for="productName">Product Name</label>
-                              <form:input type="text" path="productName" name="productName" id="productName" class="form-control"/>
+                              <form:input type="text" path="consigneeName" name="consigneeName" id="consigneeName" class="form-control" />
                            </div>
                         </div>
-                        <div class="col-xs-6 col-sm-6 col-md-6">
+                     </div>
+                     <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                           <label class=" control-label" for="gstin">GSTIN</label>
                            <div class="form-group">
-                              <label class="control-label" for="gstPercentage">GST %</label>
-                              <form:input type="text" path="gstPercentage" name="gstPercentage" id="gstPercentage" class="form-control" />
+                              <form:input type="text" path="gstin" name="gstin" id="gstin" class="form-control" />
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                           <label class=" control-label" for="address">Address</label>
+                           <div class="form-group">
+                              <form:textarea type="text" path="address" name="address" id="address" class="form-control"/>
                            </div>
                         </div>
                      </div>
                      <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6">
+                           <label class=" control-label" for="mobileNo">Mobile Number</label>
                            <div class="form-group">
-                              <label class="control-label" for="productId">Product Id</label>
-                              <form:input type="text" path="productId" name="productId" id="productId" class="form-control" />
+                              <form:input type="text" path="mobileNo" name="mobileNo" id="mobileNo" class="form-control"/>
                            </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">
+                           <label class=" control-label" for="pincode">Pincode</label>
                            <div class="form-group">
-                              <label class="control-label" for="hsnCode">HSN Code</label>
-                              <form:input type="text" path="hsnCode" name="hsnCode" id="hsnCode" class="form-control" />
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-4">
-                           <div class="form-group">
-                              <label class="control-label" for="weightPerJar">Weight/Jar</label>
-                              <form:input type="text" path="weightPerJar" name="weightPerJar" id="weightPerJar" class="form-control" placeholder="[Gms]"/>
-                           </div>
-                        </div>
-                        <div class="col-xs-4 col-sm-4 col-md-4">
-                           <div class="form-group">
-                              <label class="control-label" for="noOfPiecesPerJar">Pieces/Jar</label>
-                              <form:input type="text" path="noOfPiecesPerJar" name="noOfPiecesPerJar" id="noOfPiecesPerJar" class="form-control" />
-                           </div>
-                        </div>
-                        <div class="col-xs-4 col-sm-4 col-md-4">
-                           <div class="form-group">
-                              <label class="control-label" for="noOfJarsPerCartoon">Jars/Cartoon</label>
-                              <form:input type="text" path="noOfJarsPerCartoon" name="noOfJarsPerCartoon" id="noOfJarsPerCartoon" class="form-control" />
+                              <form:input type="text" path="pincode" name="pincode" id="pincode" class="form-control"/>
                            </div>
                         </div>
                      </div>
                      <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6">
+                           <label class=" control-label" for="state">State</label>
                            <div class="form-group">
-                              <label class="control-label" for="basicPrice">Basic Price in Rs</label>
-                              <form:input type="text" path="basicPrice" name="basicPrice" id="basicPrice" class="form-control"/>
+                              <form:input type="text" path="state" name="state" id="state" class="form-control"/>
                            </div>
                         </div>
-                        <!--
                         <div class="col-xs-6 col-sm-6 col-md-6">
+                           <label class=" control-label" for="stateCode">State Code</label>
                            <div class="form-group">
-                              <label class="control-label" for="file">Upload Pic</label>
-                              <input type="file" id="file" name="file"/>
+                              <form:input type="text" path="stateCode" name="stateCode" id="stateCode" class="form-control"/>
                            </div>
                         </div>
-                        -->
                      </div>
                </div>
             </div>

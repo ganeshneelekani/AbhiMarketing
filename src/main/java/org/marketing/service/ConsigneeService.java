@@ -15,4 +15,6 @@ public interface ConsigneeService {
     public boolean findByProductId(Consignee consignee);
 
     public List getAllTheConsignee();
+
+    public Consignee getConsignee(String consigneeName);
 }

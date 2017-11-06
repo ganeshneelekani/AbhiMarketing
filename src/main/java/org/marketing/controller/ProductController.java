@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -118,6 +119,8 @@ public class ProductController {
 
         }
 
+        ArrayList arrayList=new ArrayList();
+        ArrayList arrayList1=new ArrayList(5);
         ModelAndView modelAndView = new ModelAndView("listOfProduct");
         modelAndView.addObject("listOfProduct", listOfProduct);
         modelAndView.addObject("imageLocation", rootPath);

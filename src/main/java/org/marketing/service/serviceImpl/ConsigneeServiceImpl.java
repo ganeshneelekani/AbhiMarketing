@@ -46,4 +46,12 @@ public class ConsigneeServiceImpl implements ConsigneeService {
         List consigneeList = consigneeDao.getAllTheConsignee();
         return consigneeList;
     }
+
+    @Override
+    public Consignee getConsignee(String consigneeName) {
+
+        Consignee consignee = consigneeDao.getConsignee(consigneeName);
+        return consignee;
+
+    }
 }

@@ -95,7 +95,7 @@
       </br>
       </br>
       <div class="container">
-         <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12 col-sm-offset-2 col-md-offset-4">
+         <div class="row col-xs-4 col-sm-6 col-md-12 col-lg-12">
             <div class="table-responsive  ">
                <table class="table table-striped table-hover">
                   <thead>
@@ -136,7 +136,9 @@
 
                            <td>
 
-                                <a href="${listValue.consigneeName}"><button class="btn btn-success">Edit</button></a>
+                                <a href="${listValue.consigneeName}">Edit</a><br>
+                                 <a href="${listValue.consigneeName}">Delete</a>
+
                            </td>
                         </tr>
                      </c:forEach>

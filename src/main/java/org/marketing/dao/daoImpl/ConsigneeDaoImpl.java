@@ -30,7 +30,7 @@ public class ConsigneeDaoImpl implements ConsigneeDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public void save(Consignee consignee) throws  Exception{
+    public void save(Consignee consignee) throws Exception {
 
         sessionFactory.getCurrentSession().save(consignee);
 
@@ -55,5 +55,11 @@ public class ConsigneeDaoImpl implements ConsigneeDao {
         List consignee = sessionFactory.getCurrentSession().createCriteria(Consignee.class).list();
         return consignee;
 
+    }
+
+    @Override
+    public Consignee getConsignee(String consigneeName) {
+        Consignee consignee = (Consignee) sessionFactory.getCurrentSession().get(Consignee.class, consigneeName);
+        return consignee;
     }
 }
