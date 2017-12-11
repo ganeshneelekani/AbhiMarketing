@@ -19,4 +19,8 @@ public interface ConsigneeDao {
     public List getAllTheConsignee();
 
     public Consignee getConsignee(String consigneeName);
+
+    public void deleteConsignee(String consignee);
+
+    public void saveOrUpdate(Consignee consignee) throws Exception;
 }

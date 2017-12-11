@@ -3,23 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
    <head>
-      <meta charset="UTF-8">
-      <title>Login Information</title>
-      <script
-         src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-      <!-- Website CSS style -->
-      <!-- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
-      <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-      <link href="bootstrap/css/jquery.validation.css" rel="stylesheet">
-      <!-- Google Fonts -->
-      <link href='bootstrap/js/common/PassionOne.css'
-         rel='stylesheet' type='text/css'>
-      <link href='bootstrap/js/common/Oxygen.css'
-         rel='stylesheet' type='text/css'>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-         crossorigin="anonymous"></script>
+     <jsp:include page="pageHeader.jsp"/>
    </head>
    <body>
       <script type="text/javascript" src="bootstrap/js/jquery.validation.js"></script> 

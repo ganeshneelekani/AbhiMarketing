@@ -3,8 +3,10 @@ package org.marketing.dao.daoImpl;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.arpit.java2blog.model.Country;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.exception.ConstraintViolationException;
@@ -61,5 +63,22 @@ public class ConsigneeDaoImpl implements ConsigneeDao {
     public Consignee getConsignee(String consigneeName) {
         Consignee consignee = (Consignee) sessionFactory.getCurrentSession().get(Consignee.class, consigneeName);
         return consignee;
+    }
+
+    @Override
+    public void deleteConsignee(String consignee) {
+
+        Session session = this.sessionFactory.getCurrentSession();
+        Consignee p = (Consignee) session.load(Consignee.class, new String(consignee));
+        if (null != p) {
+            session.delete(p);
+
+        }
+    }
+
+    @Override
+    public void saveOrUpdate(Consignee consignee) throws Exception {
+
+        sessionFactory.getCurrentSession().saveOrUpdate(consignee);
     }
 }

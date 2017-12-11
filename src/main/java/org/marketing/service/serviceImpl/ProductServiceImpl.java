@@ -64,4 +64,11 @@ public class ProductServiceImpl implements ProductService {
         Product product = productDao.getProduct(productId);
         return product;
     }
+
+    @Override
+    public void deleteProduct(String productId) {
+
+        productDao.deleteProduct(productId);
+
+    }
 }

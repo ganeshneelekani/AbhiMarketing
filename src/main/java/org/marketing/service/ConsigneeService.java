@@ -17,4 +17,8 @@ public interface ConsigneeService {
     public List getAllTheConsignee();
 
     public Consignee getConsignee(String consigneeName);
+
+    public void deleteConsignee(String consignee);
+
+    public boolean saveOrUpdate(Consignee consignee);
 }

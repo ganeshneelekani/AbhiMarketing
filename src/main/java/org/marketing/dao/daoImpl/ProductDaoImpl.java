@@ -3,6 +3,7 @@ package org.marketing.dao.daoImpl;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.arpit.java2blog.model.Country;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -67,6 +68,16 @@ public class ProductDaoImpl implements ProductDao {
 
         Product product = (Product) sessionFactory.getCurrentSession().get(Product.class, productId);
         return product;
+    }
+
+    @Override
+    public void deleteProduct(String consignee) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Product p = (Product) session.load(Product.class, new String(consignee));
+        if (null != p) {
+            session.delete(p);
+
+        }
     }
 
 }

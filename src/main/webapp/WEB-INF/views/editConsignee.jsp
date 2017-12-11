@@ -4,25 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
    <head>
-      <meta charset="UTF-8">
-      <title>Login Information</title>
-      <script
-         type="text/javascript" src="bootstrap/js/common/jquery.min.js"></script>
-      <script type="text/javascript" src="bootstrap/js/common/jquery.validate.min.js"></script>
-      <!-- Website CSS style -->
-      <!-- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
-      <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-      <link href="bootstrap/css/jquery.validation.css" rel="stylesheet">
-      <!-- Google Fonts -->
-      <link href='bootstrap/js/common/PassionOne.css'
-         rel='stylesheet' type='text/css'>
-      <link href='bootstrap/js/common/Oxygen.css'
-         rel='stylesheet' type='text/css'>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-         crossorigin="anonymous"></script>
-      <script type="text/javascript" src="bootstrap/js/productValidation.js"></script> 
-      <script type="text/javascript" src="bootstrap/js/datePicker.js"></script> 
+      <jsp:include page="pageHeader.jsp"/>
    </head>
    <body>
       <script type='text/javascript'>
@@ -99,7 +81,7 @@
          <div >
             <div class="panel panel-default">
                <div class="panel-body">
-                  <form:form id="addConsignee" modelAttribute="editConsignee" action="/AbhiMarketing/updateProduct" method="post" class="form-signin"  >
+                  <form:form id="addConsignee" modelAttribute="editConsignee" action="/AbhiMarketing/updateConsignee" method="post" class="form-signin"  >
                      <c:if test="${not empty errorMessage}">
                         <div class="row">
                            <div class="col-xs-12 col-sm-12 col-md-12">
@@ -119,7 +101,7 @@
                         </div>
                      </c:if>
                      <div class="row">
-                        <div class="<div class="col-md-4 col-sm-4 col-xs-4">">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                            <label class=" control-label" for="consigneeName">Consignee Name</label>
                            <div class="form-group">
                               <form:input type="text" path="consigneeName" name="consigneeName" id="consigneeName" class="form-control" />
@@ -127,7 +109,7 @@
                         </div>
                      </div>
                      <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
                            <label class=" control-label" for="gstin">GSTIN</label>
                            <div class="form-group">
                               <form:input type="text" path="gstin" name="gstin" id="gstin" class="form-control" />

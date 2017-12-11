@@ -18,4 +18,6 @@ public interface ProductService {
     public List getAllTheProducts();
 
     public Product  getProduct(String productId);
+
+    public void deleteProduct(String consignee);
 }

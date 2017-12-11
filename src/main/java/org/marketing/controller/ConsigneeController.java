@@ -83,6 +83,27 @@ public class ConsigneeController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/updateConsignee", method = RequestMethod.POST)
+    public ModelAndView updateProduct(@ModelAttribute("editProduct") Consignee consignee, HttpServletRequest request,
+            HttpServletResponse response) {
+
+        logger.info("===================== UpdateConsignee ===================");
+
+        Boolean status = consigneeService.saveOrUpdate(consignee);
+
+        if (status.equals(true)) {
+
+            ModelAndView modelAndView = new ModelAndView("redirect:/listOfConsignee");
+            return modelAndView;
+
+        } else {
+
+            ModelAndView modelAndView = new ModelAndView("editConsignee");
+            modelAndView.addObject("editConsignee", consignee);
+            modelAndView.addObject("errorMessage", "Some Thing went wrong!!");
+            return modelAndView;
+        }
+    }
 
     @RequestMapping(value = "/listOfConsignee", method = RequestMethod.GET)
     public ModelAndView getListOfProduct(HttpServletRequest request, HttpServletResponse response) {
@@ -99,20 +120,31 @@ public class ConsigneeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "abc/{consigneeName}", method = RequestMethod.GET)
+    @RequestMapping(value = "edit/consignee/{consigneeName}", method = RequestMethod.GET)
     public ModelAndView editConsignee(HttpServletRequest request, HttpServletResponse response,
             @PathVariable("consigneeName") String consigneeName, Model model) {
 
-        logger.info("===================123===============");
+        logger.info("===================Edit===============");
 
         Consignee consignee = consigneeService.getConsignee(consigneeName);
 
-        logger.info("===================123==============="+consignee.getMobileNo());
+        logger.info("===================123===============" + consignee.getMobileNo());
 
         ModelAndView modelAndView = new ModelAndView("editConsignee");
         modelAndView.addObject("editConsignee", consignee);
 
         return modelAndView;
+    }
+
+
+    @RequestMapping(value = "delete/consignee/{consigneeName}", method = RequestMethod.GET)
+    public String deleteConsignee(HttpServletRequest request, HttpServletResponse response,
+            @PathVariable("consigneeName") String consigneeName, Model model) {
+
+        consigneeService.deleteConsignee(consigneeName);
+
+        return "redirect:/listOfConsignee";
+
     }
 
 }

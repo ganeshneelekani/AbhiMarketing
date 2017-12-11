@@ -27,7 +27,7 @@ public class ConsigneeServiceImpl implements ConsigneeService {
         try {
             consigneeDao.save(consignee);
         } catch (Exception e) {
-            logger.info(" ======== EXCEPTION ====="+e);
+            logger.info(" ======== EXCEPTION =====" + e);
             return false;
         }
         return true;
@@ -53,5 +53,24 @@ public class ConsigneeServiceImpl implements ConsigneeService {
         Consignee consignee = consigneeDao.getConsignee(consigneeName);
         return consignee;
 
+    }
+
+    @Override
+    public void deleteConsignee(String consignee) {
+
+        consigneeDao.deleteConsignee(consignee);
+    }
+
+    @Override
+    public boolean saveOrUpdate(Consignee consignee) {
+
+
+        try {
+            consigneeDao.saveOrUpdate(consignee);
+        } catch (Exception e) {
+            logger.info(" ======== EXCEPTION =====" + e);
+            return false;
+        }
+        return true;
     }
 }

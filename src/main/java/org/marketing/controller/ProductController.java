@@ -119,8 +119,8 @@ public class ProductController {
 
         }
 
-        ArrayList arrayList=new ArrayList();
-        ArrayList arrayList1=new ArrayList(5);
+        ArrayList arrayList = new ArrayList();
+        ArrayList arrayList1 = new ArrayList(5);
         ModelAndView modelAndView = new ModelAndView("listOfProduct");
         modelAndView.addObject("listOfProduct", listOfProduct);
         modelAndView.addObject("imageLocation", rootPath);
@@ -129,11 +129,11 @@ public class ProductController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/{productId}", method = RequestMethod.GET)
+    @RequestMapping(value = "edit/product/{productId}", method = RequestMethod.GET)
     public ModelAndView editProduct(HttpServletRequest request, HttpServletResponse response,
             @PathVariable("productId") String productId, Model model) {
 
-        logger.info("===================1===============");
+        logger.info("===================Edit===============");
 
         Product product = productService.getProduct(productId);
 
@@ -141,6 +141,19 @@ public class ProductController {
         modelAndView.addObject("editProduct", product);
 
         return modelAndView;
+    }
+
+
+    @RequestMapping(value = "delete/product/{productId}", method = RequestMethod.GET)
+    public String deleteProduct(HttpServletRequest request, HttpServletResponse response,
+            @PathVariable("productId") String productId, Model model) {
+
+        logger.info("===================Delete===============");
+
+
+        productService.deleteProduct(productId);
+
+        return "redirect:/listOfProduct";
     }
 
 

@@ -4,25 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
    <head>
-      <meta charset="UTF-8">
-      <title>Login Information</title>
-      <script
-         type="text/javascript" src="bootstrap/js/common/jquery.min.js"></script>
-      <script type="text/javascript" src="bootstrap/js/common/jquery.validate.min.js"></script>
-      <!-- Website CSS style -->
-      <!-- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
-      <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-      <link href="bootstrap/css/jquery.validation.css" rel="stylesheet">
-      <!-- Google Fonts -->
-      <link href='bootstrap/js/common/PassionOne.css'
-         rel='stylesheet' type='text/css'>
-      <link href='bootstrap/js/common/Oxygen.css'
-         rel='stylesheet' type='text/css'>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-         crossorigin="anonymous"></script>
-      <script type="text/javascript" src="bootstrap/js/productValidation.js"></script> 
-      <script type="text/javascript" src="bootstrap/js/datePicker.js"></script> 
+      <jsp:include page="pageHeader.jsp"/>
    </head>
    <body>
       <script type='text/javascript'>
@@ -136,8 +118,8 @@
 
                            <td>
 
-                                <a href="${listValue.consigneeName}">Edit</a><br>
-                                 <a href="${listValue.consigneeName}">Delete</a>
+                                <a href="edit/consignee/${listValue.consigneeName}">Edit</a><br>
+                                 <a href="delete/consignee/${listValue.consigneeName}">Delete</a>
 
                            </td>
                         </tr>
