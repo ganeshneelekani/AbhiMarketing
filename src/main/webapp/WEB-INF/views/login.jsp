@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
    <head>
-     <jsp:include page="pageHeader.jsp"/>
+      <jsp:include page="pageHeader.jsp"/>
    </head>
    <body>
       <script type="text/javascript" src="bootstrap/js/jquery.validation.js"></script> 
@@ -60,11 +60,11 @@
             </div>
             <div class="col-sm-4">
                <div class="card card-container">
-                  <form:form id="loginForm" modelAttribute="login" action="/SchoolInfo/loginUser" method="post" class="form-signin" >
+                  <form:form id="loginForm" modelAttribute="login" action="/AbhiMarketing/loginUser" method="post" class="form-signin" >
                      <table align="center">
                         <tr>
                            <td>
-                              <form:input path="username" name="username" id="username" placeholder="Username" class="form-control"  />
+                              <form:input path="userName" name="userName" id="userName" placeholder="Username" class="form-control"  />
                            </td>
                         </tr>
                         <tr>
@@ -100,16 +100,18 @@
                            <td>
                         </tr>
                         <tr>
-                                                   <td>
-                                                      <a href="/AbhiMarketing/listOfConsignee">List of Consignee</a>
-                                                   <td>
-                                                </tr>
-
-
+                           <td>
+                              <a href="/AbhiMarketing/listOfConsignee">List of Consignee</a>
+                           <td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <a href="/AbhiMarketing/addUser">Add User</a>
+                           <td>
+                        </tr>
                         <tr></tr>
                      </table>
                   </form:form>
-                  <!-- /form -->
                </div>
             </div>
          </div>

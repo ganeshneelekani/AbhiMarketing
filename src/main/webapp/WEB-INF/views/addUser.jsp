@@ -4,8 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
    <head>
-     <jsp:include page="pageHeader.jsp"/>
-     <script type="text/javascript" src="bootstrap/js/registrationValidation.js"></script> 
+      <jsp:include page="pageHeader.jsp"/>
+      <script type="text/javascript" src="bootstrap/js/userValidation.js"></script> 
    </head>
    <body>
       <script type='text/javascript'>
@@ -82,109 +82,35 @@
          <div >
             <div class="panel panel-default">
                <div class="panel-body">
-                  <form:form id="studentRegistration" modelAttribute="studentRegistration" action="/AbhiMarketing/RegisterStudentDetails" method="post" class="form-signin">
+                  <form:form id="addUser" modelAttribute="addUser" action="/AbhiMarketing/saveUser" method="post" class="form-signin">
                      <div class="form-group">
-                        <form:input type="text" path="studentId" name="studentId" id="studentId" class="form-control" placeholder="Student ID"/>
+                        <form:input type="text" path="userName" name="userName" id="userName" class="form-control" placeholder="User Name"/>
                      </div>
                      <div class="form-group">
-                        <form:input type="text" path="studentName" name="studentName" id="studentName" class="form-control" placeholder="Student Name"/>
+                        <form:textarea type="text" path="userAddress" name="userAddress" id="userAddress" class="form-control" placeholder="Address"/>
                      </div>
                      <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6">
                            <div class="form-group">
-                              <form:select type="text" path="studentGender" name="studentGender" id="studentGender" class="form-control" placeholder="Gender">
-                                 <option>Select Gender</option>
-                                 <option>Male</option>
-                                 <option>Female</option>
+                              <form:select type="text" path="userRole" name="userRole" id="userRole" class="form-control" placeholder="Gender">
+                                 <option>Select Role</option>
+                                 <option>Admin</option>
+                                 <option>User</option>
                               </form:select>
                            </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">
                            <div class="form-group">
-                              <form:select type="text" path="studentAge" name="studentAge" id="studentAge" class="form-control" placeholder="Age">
-                                 <option>Select Age</option>
-                                 <option> 5 </option>
-                                 <option> 6 </option>
-                                 <option> 7 </option>
-                                 <option> 8 </option>
-                                 <option> 9 </option>
-                                 <option> 10 </option>
-                                 <option> 11 </option>
-                                 <option> 12 </option>
-                                 <option> 13 </option>
-                                 <option> 14 </option>
-                                 <option> 15 </option>
-                                 <option> 16 </option>
-                                 <option> 17 </option>
-                                 <option> 18 </option>
-                                 <option> 19 </option>
-                                 <option> 20 </option>
-                              </form:select>
+                              <form:input type="text" path="userContactNumber" name="userContactNumber" id="userContactNumber" class="form-control" placeholder="Contact Number"/>
                            </div>
                         </div>
-                     </div>
-                     <div class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-4">
-                           <div class="form-group">
-                              <form:select type="text" path="classTeacherId" name="classTeacherId" id="classTeacherId" class="form-control" placeholder="Class Teacher">
-                                 <option>Select Faculty Id</option>
-                                 <c:forEach var="listValue" items="${faculties}">
-                                    <option>
-                                       <c:out value="${listValue.teacherId}" />
-                                    </option>
-                                 </c:forEach>
-                              </form:select>
-                           </div>
-                        </div>
-                        <div class="col-xs-4 col-sm-4 col-md-4">
-                           <div class="form-group">
-                              <form:select type="text" path="studentClass" name="studentClass" id="studentClass" class="form-control" placeholder="Gender">
-                                 <option>Select Class</option>
-                                 <option>I</option>
-                                 <option>II</option>
-                                 <option>III</option>
-                                 <option>IV</option>
-                                 <option>V</option>
-                                 <option>VI</option>
-                                 <option>VII</option>
-                                 <option>VIII</option>
-                                 <option>IX</option>
-                                 <option>X</option>
-                              </form:select>
-                           </div>
-                        </div>
-                        <div class="col-xs-4 col-sm-4 col-md-4">
-                           <div class="form-group">
-                              <form:select type="text" path="studentSection" name="studentSection" id="studentSection" class="form-control" placeholder="Gender">
-                                 <option>Select Section</option>
-                                 <option> A </option>
-                                 <option> B </option>
-                                 <option> C </option>
-                                 <option> D </option>
-                                 <option> E </option>
-                              </form:select>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="form-group">
-                        <form:textarea type="text" path="studentAddress" name="studentAddress" id="studentAddress" class="form-control" placeholder="Address"/>
-                     </div>
-                     <div class="form-group">
-                        <form:input type="text" path="guardianName" name="guardianName" id="guardianName" class="form-control" placeholder="Guardian Name"/>
                      </div>
                      <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6">
                            <div class="form-group">
-                              <form:input type="text" path="gurdianContactNumber" name="gurdianContactNumber" id="gurdianContactNumber" class="form-control" placeholder="Contact Number"/>
+                              <form:input type="text" path="userEmailAddress" name="userEmailAddress" id="userEmailAddress" class="form-control" placeholder="User Email Address"/>
                            </div>
                         </div>
-                        <div class="col-xs-6 col-sm-6 col-md-6">
-                           <div class="form-group">
-                              <form:input type="text" path="guardianEmailAddress" name="guardianEmailAddress" id="guardianEmailAddress" class="form-control" placeholder="Guardian Email Address"/>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6">
                            <div class="form-group">
                               <form:password  path="password" name="password" id="password" class="form-control" placeholder="Password"/>

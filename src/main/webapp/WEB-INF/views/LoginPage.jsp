@@ -73,7 +73,7 @@ $('#form-signin_v1').validate(); 
         </div>
         <div class="col-sm-4">
             <div class="card card-container">
-                <form:form class="form-signin" modelAttribute="user" method="post" action="/SchoolInfo/loginUser"  id="form-signin_v1" name="myForm">
+                <form:form class="form-signin" modelAttribute="user" method="post" action="/AbhiMarketing/loginUser"  id="form-signin_v1" name="myForm">
                     <span id="reauth-email" class="reauth-email"></span>
 
                    <form:label path="username" name="username" type="text" data-validation="[NOTEMPTY]" placeholder="Username"  class="form-control" id="inputdefault" ></form:label >

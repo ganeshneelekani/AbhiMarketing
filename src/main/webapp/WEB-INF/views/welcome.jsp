@@ -10,7 +10,7 @@
 <h2>
 Spring Landing Pag</h2>
 Click below button to get a simple HTML page
-<form:form action="/SchoolInfo/staticPage/" method="GET"><table><tbody>
+<form:form action="/AbhiMarketing/staticPage/" method="GET"><table><tbody>
 <tr>     <td><input type="submit" value="Get HTML Page" />      </td>     </tr>
 </tbody></table>
 </form:form></body>
