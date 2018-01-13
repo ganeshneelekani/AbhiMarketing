@@ -9,4 +9,6 @@ public interface LoginUserService {
 
     public void saveLoginUser(LoginUser loginUser) throws Exception;
 
+    public boolean validateUser(LoginUser loginUser);
+
 }

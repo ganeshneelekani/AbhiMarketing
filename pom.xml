@@ -55,6 +55,9 @@
       <artifactId>jackson-databind</artifactId>
       <version>2.4.1</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.0-api -->
+
+
     <!-- Hibernate -->
     <dependency>
       <groupId>org.hibernate</groupId>
@@ -100,7 +103,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.6</version>
+      <version>8.0.11</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/jstl/jstl -->
     <dependency>

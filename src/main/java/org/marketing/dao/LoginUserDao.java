@@ -12,5 +12,5 @@ public interface LoginUserDao {
 
     public void saveLoginUser(LoginUser loginUser) throws Exception;
 
-
+    public boolean validateUser(LoginUser loginUser);
 }

@@ -24,7 +24,7 @@ $(document).ready(function() {
         //        errorClass: "signup_error_class",
 
         rules: {
-            username: {
+            userName: {
                 required: true,
                 regex: /^[A-Za-z0-9_]{5,15}$/,
                 minlength: 5,
@@ -37,13 +37,13 @@ $(document).ready(function() {
             }
         },
         messages: {
-            username: {
-                required: "Please enter a username",
+            userName: {
+                required: "Please enter a UserName",
                 minlength: "Your username must consist of at least 5 characters",
                 regex: "Please enter any alphaNumeric char of length between 5-15, ie, sbp_arun_2016"
             },
             password: {
-                required: "Please provide a password",
+                required: "Please provide a Password",
                 minlength: "Your password must be at least 5 characters long"
             }
         },

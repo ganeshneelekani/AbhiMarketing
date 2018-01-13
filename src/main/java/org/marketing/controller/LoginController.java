@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.marketing.model.LoginUser;
+import org.marketing.model.bean.Product;
 import org.marketing.service.LoginUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,13 +37,24 @@ public class LoginController {
 
     @RequestMapping(value = "/loginUser", method = RequestMethod.POST)
     public ModelAndView validateLogin(HttpServletRequest request, HttpServletResponse response,
-            @ModelAttribute("login") LoginUser user) {
+            @ModelAttribute("LoginPage") LoginUser user) {
 
+        ModelAndView modelAndView = new ModelAndView("LoginPage");
         LOGGER.info(user.getUserName() + "   ======== UserName ");
         LOGGER.info(user.getPassword() + "   ======== Password ");
 
+        Boolean status = loginUserService.validateUser(user);
 
-        return new ModelAndView("login");
+
+        if (status.equals(true)) {
+
+        } else {
+
+            LOGGER.info("=======================#######==========" + status);
+
+            modelAndView.addObject("errorMessage", "Invalid User");
+        }
+        return modelAndView;
     }
 
     @RequestMapping(value = "/loginUser", method = RequestMethod.GET)
@@ -52,7 +64,7 @@ public class LoginController {
         LOGGER.info("=========================3=========");
 
         ModelAndView mav = new ModelAndView("login");
-        mav.addObject("login", new LoginUser());
+        mav.addObject("LoginPage", new LoginUser());
         return mav;
     }
 

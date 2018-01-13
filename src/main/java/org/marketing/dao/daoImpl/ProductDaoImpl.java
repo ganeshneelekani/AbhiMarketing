@@ -2,7 +2,6 @@ package org.marketing.dao.daoImpl;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.arpit.java2blog.model.Country;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -11,11 +10,12 @@ import org.hibernate.criterion.Restrictions;
 import org.marketing.controller.ProductController;
 import org.marketing.dao.ProductDao;
 import org.marketing.model.bean.Product;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 /**
  * Created by gn033604 on 9/23/17.
@@ -24,7 +24,7 @@ import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 @Transactional
 public class ProductDaoImpl implements ProductDao {
 
-    static Logger logger = Logger.getLogger(ProductDao.class);
+    static Logger logger = LoggerFactory.getLogger(ProductDaoImpl.class);
 
     @Autowired
     private SessionFactory sessionFactory;

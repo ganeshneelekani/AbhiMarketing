@@ -20,4 +20,10 @@ public class LoginUserServiceImpl implements LoginUserService {
 
         loginDao.saveLoginUser(loginUser);
     }
+
+    @Override
+    public boolean validateUser(LoginUser loginUser) {
+        Boolean status = loginDao.validateUser(loginUser);
+        return  status;
+    }
 }
