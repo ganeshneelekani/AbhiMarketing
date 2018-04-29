@@ -45,6 +45,8 @@
                 <beans:value>org.marketing.model.bean.ProductPayment</beans:value>
                 <beans:value>org.marketing.model.bean.Consignee</beans:value>
                 <beans:value>org.marketing.model.LoginUser</beans:value>
+                <beans:value>org.marketing.model.bean.Customer</beans:value>
+
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">

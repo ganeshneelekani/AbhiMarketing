@@ -24,11 +24,11 @@ $(document).ready(function() {
         //        errorClass: "signup_error_class",
 
         rules: {
-            userName: {
+            mobileNumber: {
                 required: true,
-                regex: /^[A-Za-z0-9_]{5,15}$/,
-                minlength: 5,
-                maxlength: 15,
+                regex: /^[0-9]{10,10}$/,
+                minlength: 10,
+                maxlength: 10
 
             },
             password: {
@@ -37,10 +37,10 @@ $(document).ready(function() {
             }
         },
         messages: {
-            userName: {
-                required: "Please enter a UserName",
-                minlength: "Your username must consist of at least 5 characters",
-                regex: "Please enter any alphaNumeric char of length between 5-15, ie, sbp_arun_2016"
+            mobileNumber: {
+                regex: "Mobile Number must be at 10 digit Number",
+                required: "Please provide Contact Number",
+                minlength: "Your Contact Number must be at 10 digit Number"
             },
             password: {
                 required: "Please provide a Password",

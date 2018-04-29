@@ -5,11 +5,8 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
-import org.marketing.dao.LoginUserDao;
-import org.marketing.dao.ProductDao;
-import org.marketing.model.LoginUser;
-import org.marketing.model.bean.Consignee;
+import org.marketing.dao.LoginCustomerDao;
+import org.marketing.model.bean.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,30 +16,30 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class LoginUserDaoImpl implements LoginUserDao {
+public class LoginCustomerDaoImpl implements LoginCustomerDao {
 
-    static Logger logger = Logger.getLogger(LoginUserDao.class);
+    static Logger logger = Logger.getLogger(LoginCustomerDao.class);
 
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    public void saveLoginUser(LoginUser loginUser) throws Exception {
+    public void saveLoginUser(Customer customer) throws Exception {
 
-        logger.info("=======================#######==========" + loginUser.getUserName());
-        sessionFactory.getCurrentSession().save(loginUser);
+        logger.info("=======================#######==========" + customer.getMobileNumber());
+        sessionFactory.getCurrentSession().save(customer);
 
     }
 
     @Override
-    public boolean validateUser(LoginUser loginUser) {
+    public boolean validateCustomer(Customer customer) {
 
         boolean userFound = false;
         //Query using Hibernate Query Language
-        String SQL_QUERY = " from LoginUser as o where o.userName=? and o.password=?";
+        String SQL_QUERY = " from Customer as o where o.mobileNumber=? and o.password=?";
         Query query = sessionFactory.getCurrentSession().createQuery(SQL_QUERY);
-        query.setParameter(0, loginUser.getUserName());
-        query.setParameter(1, loginUser.getPassword());
+        query.setParameter(0, customer.getMobileNumber());
+        query.setParameter(1, customer.getPassword());
         List list = query.list();
 
         if ((list != null) && (list.size() > 0)) {

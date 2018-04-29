@@ -60,11 +60,11 @@
             </div>
             <div class="col-sm-4">
                <div class="card card-container">
-                  <form:form id="loginForm" modelAttribute="login" action="/AbhiMarketing/loginUser" method="post" class="form-signin" >
+                  <form:form id="loginForm" modelAttribute="login" action="/AbhiMarketing/loginCustomer" method="post" class="form-signin" >
                      <table align="center">
                         <tr>
                            <td>
-                              <form:input path="userName" name="userName" id="userName" placeholder="Username" class="form-control"  />
+                              <form:input path="mobileNumber" name="mobileNumber" id="mobileNumber" placeholder="Mobile Number" class="form-control"  />
                            </td>
                         </tr>
                         <tr>
@@ -106,7 +106,7 @@
                         </tr>
                         <tr>
                            <td>
-                              <a href="/AbhiMarketing/addUser">Add User</a>
+                              <a href="/AbhiMarketing/addCustomer">Add Customer</a>
                            <td>
                         </tr>
                         <tr></tr>
