@@ -292,7 +292,7 @@ body {
     line-height: 1.5;
     color: #292b2c;
     background-color: #f6f6f6;
-     background-image: url('../images/cover.jpg');*/
+   /*  background-image: url('../images/cover.jpg');*/
     background-position:center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -9238,6 +9238,15 @@ img {
 }
 .img-circle {
     border-radius: 50%
+}
+
+divfail
+{
+    color: red;
+}
+divsuccess
+{
+    color: green;
 }
 /*# sourceMappingURL=bootstrap.css.map */
 

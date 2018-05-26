@@ -26,4 +26,10 @@ public class LoginCustomerServiceImpl implements LoginCustomerService {
         Boolean status = loginDao.validateCustomer(customer);
         return  status;
     }
+
+    @Override
+    public Customer getCustomerDetails(Customer customer) {
+       Customer customerInfo= loginDao.getCustomerDetails(customer);
+       return customerInfo;
+    }
 }

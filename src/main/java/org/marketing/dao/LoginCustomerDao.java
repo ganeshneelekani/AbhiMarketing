@@ -14,4 +14,6 @@ public interface LoginCustomerDao {
     public void saveLoginUser(Customer customer) throws Exception;
 
     public boolean validateCustomer(Customer customer);
+
+    public Customer getCustomerDetails(Customer customer);
 }

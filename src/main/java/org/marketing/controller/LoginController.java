@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.marketing.model.LoginUser;
 import org.marketing.model.bean.Customer;
+import org.marketing.service.CustomerService;
 import org.marketing.service.LoginCustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,11 @@ public class LoginController {
     @Autowired
     LoginCustomerService loginCustomerService;
 
+    @Autowired
+    CustomerService customerService;
+
+
+
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public String welcome() {
 
@@ -37,21 +43,25 @@ public class LoginController {
 
     @RequestMapping(value = "/loginCustomer", method = RequestMethod.POST)
     public ModelAndView validateLogin(HttpServletRequest request, HttpServletResponse response,
-            @ModelAttribute("LoginPage") Customer customer) {
+            @ModelAttribute("login") Customer customer) {
 
-        ModelAndView modelAndView = new ModelAndView("LoginPage");
+        ModelAndView modelAndView;
         LOGGER.info(customer.getMobileNumber() + "   ======== UserName ");
         LOGGER.info(customer.getPassword() + "   ======== Password ");
 
         Boolean status = loginCustomerService.validateUser(customer);
 
 
+        Customer customerDetail=loginCustomerService.getCustomerDetails(customer);
+
         if (status.equals(true)) {
 
+            LOGGER.info(customerDetail.getCustomerName() + "   ======== NAME ");
+            return new ModelAndView("loginCustomerSuccess", "customerName", customerDetail.getCustomerName());
         } else {
-
+            modelAndView = new ModelAndView("login");
+            modelAndView.addObject("login", customer);
             LOGGER.info("=======================#######==========" + status);
-
             modelAndView.addObject("errorMessage", "Invalid User");
         }
         return modelAndView;

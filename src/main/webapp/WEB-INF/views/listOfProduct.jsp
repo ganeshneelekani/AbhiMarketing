@@ -42,8 +42,11 @@
          <a class="navbar-brand" href="#">BS 4 <strong>My Resume</strong></a>
          <div class="collapse navbar-collapse" id="navbarResponsive" name="navbarResponsive">
             <ul class="navbar-nav mr-auto">
+             <li class="nav-item">
+                 <a class="nav-link active" href="/AbhiMarketing">Home</a>
+             </li>
                <li class="nav-item">
-                  <a class="nav-link active" href="#resume">Resume <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="#resume">Resume <span class="sr-only">(current)</span></a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="#attributes">Attributes</a>

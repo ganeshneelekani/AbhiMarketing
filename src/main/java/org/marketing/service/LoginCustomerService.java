@@ -12,4 +12,6 @@ public interface LoginCustomerService {
 
     public boolean validateUser(Customer loginUser);
 
+    public Customer getCustomerDetails(Customer customer);
+
 }

@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -61,6 +62,28 @@
             <div class="col-sm-4">
                <div class="card card-container">
                   <form:form id="loginForm" modelAttribute="login" action="/AbhiMarketing/loginCustomer" method="post" class="form-signin" >
+                     <c:choose>
+                        <c:when test="${not empty errorMessage}">
+                           <div class="row">
+                              <div class="col-xs-12 col-sm-12 col-md-12">
+                                 <div class="alert alert-danger col-xs-12 col-sm-12 col-md-12 ">
+                                   <strong>
+                                    <c:out value="${errorMessage}" />
+                                    </strong>
+                                 </div>
+                              </div>
+                           </div>
+                        </c:when>
+                        <c:when test="${not empty sucessMessage}">
+                           <div class="row">
+                              <div class="col-xs-12 col-sm-12 col-md-12">
+                                 <div class="alert alert-success col-xs-12 col-sm-12 col-md-12">
+                                    <c:out value="${sucessMessage}" />
+                                 </div>
+                              </div>
+                           </div>
+                        </c:when>
+                     </c:choose>
                      <table align="center">
                         <tr>
                            <td>

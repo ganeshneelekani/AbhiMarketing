@@ -1,5 +1,6 @@
 package org.marketing.dao.daoImpl;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -47,5 +48,24 @@ public class LoginCustomerDaoImpl implements LoginCustomerDao {
         }
 
         return userFound;
+    }
+
+    @Override
+    public Customer getCustomerDetails(Customer customer) {
+
+        Customer customerDetail = null;
+        String SQL_QUERY = "from Customer as o where o.mobileNumber=?";
+
+        Query query = sessionFactory.getCurrentSession().createQuery(SQL_QUERY);
+        query.setParameter(0, customer.getMobileNumber());
+
+        List<Customer> customerInfo = query.list();
+        Iterator iterator = customerInfo.iterator();
+        while (iterator.hasNext()) {
+            customerDetail = (Customer) iterator.next();
+        }
+        logger.info("======================@@@@+==========="+customerDetail.getCustomerName());
+        return customerDetail;
+
     }
 }
