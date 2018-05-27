@@ -19,13 +19,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 
     static Logger LOGGER = Logger.getLogger(LoginController.class);
+    public String customerMobileNumer;
 
     @Autowired
     LoginCustomerService loginCustomerService;
 
     @Autowired
     CustomerService customerService;
-
 
 
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
@@ -41,7 +41,7 @@ public class LoginController {
         return mav;
     }
 
-    @RequestMapping(value = "/loginCustomer", method = RequestMethod.POST)
+    @RequestMapping(value = "/loginCustomer", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView validateLogin(HttpServletRequest request, HttpServletResponse response,
             @ModelAttribute("login") Customer customer) {
 
@@ -49,10 +49,18 @@ public class LoginController {
         LOGGER.info(customer.getMobileNumber() + "   ======== UserName ");
         LOGGER.info(customer.getPassword() + "   ======== Password ");
 
+        customerMobileNumer = customer.getMobileNumber();
+        if (customerMobileNumer == null) {
+
+            LOGGER.info("=========================CALLING LOGIN =========");
+            modelAndView = new ModelAndView("login");
+            modelAndView.addObject("login", new Customer());
+            return modelAndView;
+        }
+
         Boolean status = loginCustomerService.validateUser(customer);
 
-
-        Customer customerDetail=loginCustomerService.getCustomerDetails(customer);
+        Customer customerDetail = loginCustomerService.getCustomerDetails(customer);
 
         if (status.equals(true)) {
 
@@ -100,4 +108,20 @@ public class LoginController {
         mav.addObject("addUser", new LoginUser());
         return mav;
     }
+
+    //    @RequestMapping(value = "/loginCustomer", method = RequestMethod.GET)
+    //    public Object loginCustomerGetRequest(@ModelAttribute("login") Customer customer) {
+    //
+    //        if (customerMobileNumer.isEmpty()) {
+    //
+    //            LOGGER.info("=========================CALLING LOGIN =========");
+    //            ModelAndView mav = new ModelAndView("login");
+    //            mav.addObject("login", new Customer());
+    //            return mav;
+    //        } else {
+    //            LOGGER.info("=========================GET REQ=========");
+    //
+    //            return "redirect:/loginCustomer";
+    //        }
+    //    }
 }

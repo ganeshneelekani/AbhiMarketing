@@ -15,7 +15,7 @@
             aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
          </button>
-         <a class="navbar-brand" href="#"><strong> Sirsi Tailor</strong></a>
+         <a class="navbar-brand" href="#"><strong> Abhi Marketing</strong></a>
          <div class="collapse navbar-collapse" id="navbarResponsive" name="navbarResponsive">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item">
